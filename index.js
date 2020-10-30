@@ -25,7 +25,7 @@ api.start()
 
 // Receive messages via event callback
 api.on('update', update => {
-
+    console.log(update)
     const username = update.message.text;
     const chat_id = update.message.chat.id;
 
@@ -35,6 +35,7 @@ api.on('update', update => {
         const GH_API = `https://api.github.com/users/${newUsername}`
         axios.get(GH_API)
             .then(function(response) {
+
                 const ghUsername = response.data.login;
                 const avatar = response.data.avatar_url;
                 const url = response.data.html_url;
@@ -43,16 +44,17 @@ api.on('update', update => {
                 const followers = response.data.followers;
                 const following = response.data.following;
                 api.sendMessage({
-                        chat_id: chat_id,
-                        // text: ghUsername,
-                        text: url + "\n* Name: *" + name + "\n* Username: *" + ghUsername + "\n* Public Repos: *" + publicRepos + "\n* Followers: *" + followers + "\n* Following: *" + following,
-                        parse_mode: 'Markdown',
-                    })
-                    // api.sendPhoto({
-                    //     chat_id: chat_id,
-                    //     photo: avatar,
-                    //     caption: ghUsername,
-                    // })
+                    chat_id: chat_id,
+                    // text: ghUsername,
+                    text: url +
+                        "\n* Name: *" + name +
+                        "\n* Username: *" + ghUsername +
+                        "\n* Public Repos: *" + publicRepos +
+                        "\n* Followers: *" + followers +
+                        "\n* Following: *" + following,
+                    parse_mode: 'Markdown',
+                })
+
             })
             .catch(function(err) {
                 console.log(err);
