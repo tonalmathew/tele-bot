@@ -32,15 +32,11 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
                         following,
                     parse_mode: "Markdown",
                 });
-                api.sendSticker({
-                    chat_id: chat_id,
-                    sticker_set_name: "😂"
-                })
             })
             .catch(function(err) {
                 api.sendMessage({
                     chat_id: chat_id,
-                    text: "മോനാ ക്ഷെമിക്കു!!",
+                    text: "അച്ചോടാ!!",
                     parse_mode: "Markdown",
                 });
                 console.log(err);
