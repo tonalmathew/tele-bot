@@ -37,16 +37,22 @@ api.on('update', update => {
             .then(function(response) {
                 const ghUsername = response.data.login;
                 const avatar = response.data.avatar_url;
-                // api.sendMessage({
-                //     chat_id: chat_id,
-                //     text: ghUsername,
-                //     parse_mode: 'Markdown',
-                // })
-                api.sendPhoto({
-                    chat_id: chat_id,
-                    photo: avatar,
-                    caption: ghUsername,
-                })
+                const url = response.data.html_url;
+                const name = response.data.name;
+                const publicRepos = response.data.public_repos;
+                const followers = response.data.followers;
+                const following = response.data.following;
+                api.sendMessage({
+                        chat_id: chat_id,
+                        // text: ghUsername,
+                        text: url + "\n* Name: *" + name + "\n* Username: *" + ghUsername + "\n* Public Repos: *" + publicRepos + "\n* Followers: *" + followers + "\n* Following: *" + following,
+                        parse_mode: 'Markdown',
+                    })
+                    // api.sendPhoto({
+                    //     chat_id: chat_id,
+                    //     photo: avatar,
+                    //     caption: ghUsername,
+                    // })
             })
             .catch(function(err) {
                 console.log(err);
