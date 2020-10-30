@@ -20,7 +20,6 @@ api.setMessageProvider(mp)
 api.start()
     .then(() => {
         console.log('API is started')
-        console.log(process.env.TELE_API_KEY)
     })
     .catch(console.err)
 
