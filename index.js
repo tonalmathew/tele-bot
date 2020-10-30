@@ -3,7 +3,7 @@ const axios = require('axios');
 
 
 const api = new TG({
-    token: '1265807142:AAHgQTrow3ms4jU0_ZwvLzHMr2G_zgp59ys'
+    token: 'telegram token'
 })
 
 // Define your message provider
