@@ -1,20 +1,15 @@
-const getGithubProfileDetails = (messageWithUserName, chat_id) => {
+const axios = require("axios");
+const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
+ 
   if (messageWithUserName.startsWith("!")) {
     const newUsername = messageWithUserName.slice(1);
     const GH_API = `https://api.github.com/users/${newUsername}`;
     axios
       .get(GH_API)
       .then(function (response) {
+        console.log(response);
         // !Array Destructuring
-        const [
-          ghUsername,
-          avatar,
-          url,
-          name,
-          publicRepos,
-          followers,
-          following,
-        ] = [
+        const [ghUsername, url, name, publicRepos, followers, following] = [
           response.data.login,
           response.data.avatar_url,
           response.data.name,
@@ -40,6 +35,7 @@ const getGithubProfileDetails = (messageWithUserName, chat_id) => {
         });
       })
       .catch(function (err) {
+        console.log("error anallo");
         console.log(err);
       });
   }

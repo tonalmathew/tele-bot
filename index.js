@@ -1,5 +1,4 @@
 const TG = require("telegram-bot-api");
-const axios = require("axios");
 const dotenv = require("dotenv");
 const getDetails = require("./api/getDetails.api.github");
 
@@ -25,5 +24,5 @@ api.on("update", (update) => {
     update.message.chat.id,
   ];
 
-  getDetails(messageWithUserName, chat_id);
+  getDetails(messageWithUserName, chat_id, api);
 });
