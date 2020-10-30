@@ -1,9 +1,13 @@
 const TG = require('telegram-bot-api');
 const axios = require('axios');
+const dotenv = require('dotenv');
+dotenv.config();
+
+
 
 
 const api = new TG({
-    token: '1265807142:AAHgQTrow3ms4jU0_ZwvLzHMr2G_zgp59ys'
+    token: process.env.TELE_API_KEY
 })
 
 // Define your message provider
@@ -16,6 +20,7 @@ api.setMessageProvider(mp)
 api.start()
     .then(() => {
         console.log('API is started')
+        console.log(process.env.TELE_API_KEY)
     })
     .catch(console.err)
 
