@@ -40,7 +40,7 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
             .catch(function(err) {
                 api.sendMessage({
                     chat_id: chat_id,
-                    text: "Invalid username 🤭",
+                    text: "മോനാ ക്ഷെമിക്കു!!",
                     parse_mode: "Markdown",
                 });
                 console.log(err);
