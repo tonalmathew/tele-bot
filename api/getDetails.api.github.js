@@ -39,8 +39,8 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
                     text: "അച്ചോടാ!!",
                     parse_mode: "Markdown",
                 });
-                console.log(err);
-                console.log("error anallo");
+                // console.log(err);
+                // console.log("error anallo");
 
             });
     }
