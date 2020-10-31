@@ -1,7 +1,9 @@
 const TG = require("telegram-bot-api");
 const dotenv = require("dotenv");
 const getDetails = require("./api/getDetails.api.github");
-
+let date_ob = new Date();
+let hours = date_ob.getHours();
+console.log(hours);
 dotenv.config();
 
 const api = new TG({

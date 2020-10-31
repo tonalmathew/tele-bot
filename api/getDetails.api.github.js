@@ -17,6 +17,7 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
                     response.data.followers,
                     response.data.following,
                 ];
+                
                 api.sendMessage({
                     chat_id: chat_id,
                     text: url +
@@ -43,7 +44,7 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
                 console.log("error anallo");
 
             });
-    }
+    } 
 };
 
 module.exports = getGithubProfileDetails;
