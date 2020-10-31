@@ -5,7 +5,7 @@ const intro = require("./api/intro");
 dotenv.config();
 
 const bot = new TG({
-  token: process.env.TELE_API_KEY,
+    token: process.env.BOT_TOKEN,
 });
 
 const mp = new TG.GetUpdateMessageProvider();
@@ -13,11 +13,11 @@ const mp = new TG.GetUpdateMessageProvider();
 bot.setMessageProvider(mp);
 
 bot
-  .start()
-  .then(() => {
-    console.log("API is started");
-  })
-  .catch(console.err);
+    .start()
+    .then(() => {
+        console.log("API is started");
+    })
+    .catch(console.err);
 
 bot.on("update", (update) => {
   const [message, chat_id, name] = [
@@ -32,6 +32,5 @@ bot.on("update", (update) => {
         intro.start(name, bot, chat_id);
         break;
     }
-  }
-  getDetails(message, chat_id, bot);
+    getDetails(message, chat_id, bot);
 });
