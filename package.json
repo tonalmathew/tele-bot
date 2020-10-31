@@ -4,14 +4,14 @@
     "description": "A telegram bot 😉",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js",
-        "dev": "nodemon index.js"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "tonalmathew",
     "license": "ISC",
     "dependencies": {
         "axios": "^0.21.0",
         "dotenv": "^8.2.0",
+        "micro-bot": "^2.5.3",
         "nodemon": "^2.0.6",
         "telegram-bot-api": "^2.0.1"
     }
