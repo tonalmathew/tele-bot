@@ -27,7 +27,7 @@ bot.on("update", (update) => {
 
   if (message.startsWith("/")) {
     switch (message) {
-      case "/start": intro.start(name, bot, chat_id); break;
+      case "/start": intro.startMessage(name, bot, chat_id); break;
     }
   }
   getDetails(message, chat_id, bot);
