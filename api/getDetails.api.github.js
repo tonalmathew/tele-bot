@@ -1,6 +1,5 @@
 const axios = require("axios");
 const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
-
     if (messageWithUserName.startsWith("!")) {
         const newUsername = messageWithUserName.slice(1);
         const GH_API = `https://api.github.com/users/${newUsername}`;
@@ -44,6 +43,7 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
 
             });
     }
-};
+
+}
 
 module.exports = getGithubProfileDetails;

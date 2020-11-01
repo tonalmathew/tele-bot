@@ -2,6 +2,7 @@ const TG = require("telegram-bot-api");
 const dotenv = require("dotenv");
 const getDetails = require("./api/getDetails.api.github");
 const intro = require("./api/intro");
+const goodMorning = require("./api/goodMorning");
 dotenv.config();
 
 const bot = new TG({
@@ -19,10 +20,11 @@ bot
     .catch(console.err);
 
 bot.on("update", (update) => {
+    // console.log(update);
     const [message, chat_id, name] = [
         update.message.text,
         update.message.chat.id,
-        update.message.chat.first_name
+        update.message.from.first_name
     ];
 
     if (message.startsWith("/")) {
@@ -33,4 +35,5 @@ bot.on("update", (update) => {
         }
     }
     getDetails(message, chat_id, bot);
+    goodMorning(message, chat_id, name, bot);
 });
