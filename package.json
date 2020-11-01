@@ -12,6 +12,7 @@
     "dependencies": {
         "axios": "^0.21.0",
         "dotenv": "^8.2.0",
+        "micro-bot": "^2.5.3",
         "nodemon": "^2.0.6",
         "telegram-bot-api": "^2.0.1"
     }
