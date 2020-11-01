@@ -1,6 +1,5 @@
 const axios = require("axios");
 const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
-
     if (messageWithUserName.startsWith("!")) {
         const newUsername = messageWithUserName.slice(1);
         const GH_API = `https://api.github.com/users/${newUsername}`;
@@ -45,23 +44,5 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
 
             });
     }
-    
-    const bye = "bye";
-    // console.log(messageWithUserName);
-    if (messageWithUserName.toString().toLowerCase().includes(bye)) {
-        console.log(messageWithUserName);
-        // api.sendMessage({
-        //     chat_id: chat_id,
-        //     text: "Hope to see you around again" + name + "Bye",
-        //     parse_mode: "Markdown",
-        // });
-        api.sendMessage({
-            chat_id: chat_id,
-            text: "Hope to see you around again Bye",
-            parse_mode: "Markdown",
-        });
-    }
-
-};
-
+}
 module.exports = getGithubProfileDetails;

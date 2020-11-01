@@ -1,28 +1,42 @@
 const TG = require("telegram-bot-api");
 const dotenv = require("dotenv");
 const getDetails = require("./api/getDetails.api.github");
-
+const intro = require("./api/commands");
+const goodMorning = require("./api/goodMorning");
+const bye = require("./api/bye");
+const byeMessage = require("./api/bye");
 dotenv.config();
 
-const api = new TG({
-  token: process.env.TELE_API_KEY,
+const bot = new TG({
+    token: process.env.TELE_API_KEY,
 });
 
 const mp = new TG.GetUpdateMessageProvider();
 
-api.setMessageProvider(mp);
-api
-  .start()
-  .then(() => {
-    console.log("API is started");
-  })
-  .catch(console.err);
+bot.setMessageProvider(mp);
+bot
+    .start()
+    .then(() => {
+        console.log("API is started");
+    })
+    .catch(console.err);
 
-api.on("update", (update) => {
-  const [messageWithUserName, chat_id] = [
-    update.message.text,
-    update.message.chat.id,
-  ];
+bot.on("update", (update) => {
+    // console.log(update);
+    const [message, chat_id, name] = [
+        update.message.text,
+        update.message.chat.id,
+        update.message.from.first_name
+    ];
 
-  getDetails(messageWithUserName, chat_id, api);
+    if (message.startsWith("/")) {
+        switch (message) {
+            case "/start":
+                intro.start(name, bot, chat_id);
+                break;
+        }
+    }
+    getDetails(message, chat_id, bot);
+    goodMorning(message, chat_id, name, bot);
+    byeMessage(message,chat_id,name,bot);
 });
