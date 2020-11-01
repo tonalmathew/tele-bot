@@ -2,9 +2,10 @@ const TG = require("telegram-bot-api");
 const dotenv = require("dotenv");
 const getDetails = require("./api/getDetails.api.github");
 const intro = require("./api/commands");
-const goodMorning = require("./api/goodMorning");
-const bye = require("./api/bye");
-const byeMessage = require("./api/bye");
+const goodMorning = require("./api/greetings/goodMorning");
+const goodNight = require("./api/greetings/goodNight");
+
+const byeMessage = require("./api/greetings/bye");
 dotenv.config();
 
 const bot = new TG({
@@ -38,5 +39,6 @@ bot.on("update", (update) => {
     }
     getDetails(message, chat_id, bot);
     goodMorning(message, chat_id, name, bot);
+    goodNight(message, chat_id, name, bot);
     byeMessage(message, chat_id, name, bot);
 });
