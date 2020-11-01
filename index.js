@@ -8,7 +8,7 @@ const byeMessage = require("./api/bye");
 dotenv.config();
 
 const bot = new TG({
-    token: process.env.TELE_API_KEY,
+    token: process.env.BOT_TOKEN,
 });
 
 const mp = new TG.GetUpdateMessageProvider();
@@ -38,5 +38,5 @@ bot.on("update", (update) => {
     }
     getDetails(message, chat_id, bot);
     goodMorning(message, chat_id, name, bot);
-    byeMessage(message,chat_id,name,bot);
+    byeMessage(message, chat_id, name, bot);
 });
