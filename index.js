@@ -32,7 +32,7 @@ bot.on("update", (update) => {
     if (message.startsWith("/")) {
         switch (message) {
             case "/start":
-                commands(name, bot, chat_id);
+                commands.startMessage(name, bot, chat_id);
                 break;
         }
     }
