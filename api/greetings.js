@@ -1,7 +1,7 @@
 module.exports = (greetingMessage, chat_id, name, bot) => {
     greetingMessage = greetingMessage.toString().toLowerCase();
 
-    const [bye, goodNight, goodMorning, mrng] = ["bye", "good night", "good morning", "mrng"];
+    const [bye, goodNight, goodMorning] = ["bye", "good night", "good morning"];
 
     if (greetingMessage.includes(bye)) {
         bot.sendMessage({
@@ -10,7 +10,7 @@ module.exports = (greetingMessage, chat_id, name, bot) => {
                 name,
             parse_mode: "Markdown",
         });
-    } else if (greetingMessage.includes(goodMorning || mrng)) {
+    } else if (greetingMessage.includes(goodMorning)) {
         bot.sendMessage({
             chat_id: chat_id,
             text: "Good Morning " + name + "😇",
