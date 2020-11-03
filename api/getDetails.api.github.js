@@ -1,6 +1,5 @@
 const axios = require("axios");
 const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
-
     if (messageWithUserName.startsWith("!")) {
         const newUsername = messageWithUserName.slice(1);
         const GH_API = `https://api.github.com/users/${newUsername}`;
@@ -17,6 +16,7 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
                     response.data.followers,
                     response.data.following,
                 ];
+                
                 api.sendMessage({
                     chat_id: chat_id,
                     text: url +
@@ -39,11 +39,10 @@ const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
                     text: "അച്ചോടാ!!",
                     parse_mode: "Markdown",
                 });
-                // console.log(err);
-                // console.log("error anallo");
+                console.log(err);
+                console.log("error anallo");
 
             });
     }
-};
-
+}
 module.exports = getGithubProfileDetails;
