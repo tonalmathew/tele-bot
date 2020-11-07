@@ -1,6 +1,6 @@
 const axios = require("axios");
 const getGithubProfileDetails = (messageWithUserName, chat_id, api) => {
-    //   api.sendChatAction({ chat_id: chat_id, action: "typing" });
+    api.sendChatAction({ chat_id: chat_id, action: "typing" });
     if (messageWithUserName.startsWith("!")) {
         api.sendChatAction({ chat_id: chat_id, action: "typing" });
         const newUsername = messageWithUserName.slice(1);
